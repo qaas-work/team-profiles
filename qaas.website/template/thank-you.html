@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>QAAS - Quality as a Service</title>
+
+    <!-- Meta Tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="author" content="Webestica.com" />
+    <meta
+      name="description"
+      content="Technology and Corporate Bootstrap Theme"
+    />
+
+    <!-- Dark mode -->
+    <script>
+      const storedTheme = localStorage.getItem("theme");
+
+      const getPreferredTheme = () => {
+        if (storedTheme) {
+          return storedTheme;
+        }
+        return window.matchMedia("(prefers-color-scheme: light)").matches
+          ? "light"
+          : "light";
+      };
+
+      const setTheme = function (theme) {
+        if (
+          theme === "auto" &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches
+        ) {
+          document.documentElement.setAttribute("data-bs-theme", "dark");
+        } else {
+          document.documentElement.setAttribute("data-bs-theme", theme);
+        }
+      };
+
+      setTheme(getPreferredTheme());
+
+      window.addEventListener("DOMContentLoaded", () => {
+        var el = document.querySelector(".theme-icon-active");
+        if (el != "undefined" && el != null) {
+          const showActiveTheme = (theme) => {
+            const activeThemeIcon = document.querySelector(
+              ".theme-icon-active use"
+            );
+            const btnToActive = document.querySelector(
+              `[data-bs-theme-value="${theme}"]`
+            );
+            const svgOfActiveBtn = btnToActive
+              .querySelector(".mode-switch use")
+              .getAttribute("href");
+
+            document
+              .querySelectorAll("[data-bs-theme-value]")
+              .forEach((element) => {
+                element.classList.remove("active");
+              });
+
+            btnToActive.classList.add("active");
+            activeThemeIcon.setAttribute("href", svgOfActiveBtn);
+          };
+
+          window
+            .matchMedia("(prefers-color-scheme: dark)")
+            .addEventListener("change", () => {
+              if (storedTheme !== "light" || storedTheme !== "dark") {
+                setTheme(getPreferredTheme());
+              }
+            });
+
+          showActiveTheme(getPreferredTheme());
+
+          document
+            .querySelectorAll("[data-bs-theme-value]")
+            .forEach((toggle) => {
+              toggle.addEventListener("click", () => {
+                const theme = toggle.getAttribute("data-bs-theme-value");
+                localStorage.setItem("theme", theme);
+                setTheme(theme);
+                showActiveTheme(theme);
+              });
+            });
+        }
+      });
+    </script>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico" />
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Plugins CSS -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="assets/vendor/font-awesome/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="assets/vendor/bootstrap-icons/bootstrap-icons.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="assets/vendor/swiper/swiper-bundle.min.css"
+    />
+
+    <!-- Theme CSS -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+  </head>
+
+  <body>
+    <!-- Header START -->
+    <header class="header-sticky header-absolute">
+      <!-- Logo Nav START -->
+      <nav class="navbar navbar-expand-xl">
+        <div class="container">
+          <!-- Logo START -->
+          <a class="navbar-brand me-0" href="index.html">
+            <img
+              class="light-mode-item navbar-brand-item"
+              src="assets/images/logo.png"
+              alt="logo"
+            />
+            <img
+              class="dark-mode-item navbar-brand-item"
+              src="assets/images/logo.png"
+              alt="logo"
+            />
+          </a>
+          <!-- Logo END -->
+
+          <!-- Main navbar START -->
+          <div class="navbar-collapse collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll dropdown-hover mx-auto">
+              <!-- Nav item -->
+              <li class="nav-item">
+                <a class="nav-link" href="index.html#services">Services</a>
+              </li>
+              <!-- Nav item -->
+              <li class="nav-item">
+                <a class="nav-link" href="index.html#team">Team</a>
+              </li>
+              <!-- Nav item -->
+              <li class="nav-item">
+                <a class="nav-link" href="contact-v1.html">Contact us</a>
+              </li>
+              <!-- Nav item -->
+              <li class="nav-item">
+                <a class="nav-link" href="contact-v2.html">Careers</a>
+              </li>
+            </ul>
+          </div>
+          <!-- Main navbar END -->
+        </div>
+      </nav>
+      <!-- Logo Nav END -->
+    </header>
+    <!-- Header END -->
+
+    <!-- **************** MAIN CONTENT START **************** -->
+    <main>
+      <!-- =======================
+Main hero START -->
+      <section class="pt-7 pt-md-8">
+        <div class="container pt-4 pt-md-0">
+          <div class="row justify-content-center">
+            <div class="col-lg-12 mb-6 mb-lg-0 mt-6">
+              <div class="d-flex flex-column h-100 text-center">
+                <!-- Title -->
+                <h1 class="mb-3">Thank you for your submission.</h1>
+              </div>
+            </div>
+          </div>
+          <!-- Row END -->
+        </div>
+      </section>
+      <!-- =======================
+Main hero END -->
+    </main>
+    <!-- **************** MAIN CONTENT END **************** -->
+
+    <!-- Back to top -->
+    <div class="back-top"></div>
+
+    <!-- Bootstrap JS -->
+    <script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!--Vendors-->
+    <script src="assets/vendor/jarallax/jarallax.min.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Theme Functions -->
+    <script src="assets/js/functions.js"></script>
+  </body>
+</html>

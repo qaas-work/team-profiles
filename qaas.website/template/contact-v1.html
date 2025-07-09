@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>QAAS - Quality as a Service</title>
+
+    <!-- Meta Tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="author" content="Webestica.com" />
+    <meta
+      name="description"
+      content="Technology and Corporate Bootstrap Theme"
+    />
+
+    <!-- Dark mode -->
+    <script>
+      const storedTheme = localStorage.getItem("theme");
+
+      const getPreferredTheme = () => {
+        if (storedTheme) {
+          return storedTheme;
+        }
+        return window.matchMedia("(prefers-color-scheme: light)").matches
+          ? "light"
+          : "light";
+      };
+
+      const setTheme = function (theme) {
+        if (
+          theme === "auto" &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches
+        ) {
+          document.documentElement.setAttribute("data-bs-theme", "dark");
+        } else {
+          document.documentElement.setAttribute("data-bs-theme", theme);
+        }
+      };
+
+      setTheme(getPreferredTheme());
+
+      window.addEventListener("DOMContentLoaded", () => {
+        var el = document.querySelector(".theme-icon-active");
+        if (el != "undefined" && el != null) {
+          const showActiveTheme = (theme) => {
+            const activeThemeIcon = document.querySelector(
+              ".theme-icon-active use"
+            );
+            const btnToActive = document.querySelector(
+              `[data-bs-theme-value="${theme}"]`
+            );
+            const svgOfActiveBtn = btnToActive
+              .querySelector(".mode-switch use")
+              .getAttribute("href");
+
+            document
+              .querySelectorAll("[data-bs-theme-value]")
+              .forEach((element) => {
+                element.classList.remove("active");
+              });
+
+            btnToActive.classList.add("active");
+            activeThemeIcon.setAttribute("href", svgOfActiveBtn);
+          };
+
+          window
+            .matchMedia("(prefers-color-scheme: dark)")
+            .addEventListener("change", () => {
+              if (storedTheme !== "light" || storedTheme !== "dark") {
+                setTheme(getPreferredTheme());
+              }
+            });
+
+          showActiveTheme(getPreferredTheme());
+
+          document
+            .querySelectorAll("[data-bs-theme-value]")
+            .forEach((toggle) => {
+              toggle.addEventListener("click", () => {
+                const theme = toggle.getAttribute("data-bs-theme-value");
+                localStorage.setItem("theme", theme);
+                setTheme(theme);
+                showActiveTheme(theme);
+              });
+            });
+        }
+      });
+    </script>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico" />
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Plugins CSS -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="assets/vendor/font-awesome/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="assets/vendor/bootstrap-icons/bootstrap-icons.css"
+    />
+
+    <!-- Theme CSS -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+  </head>
+
+  <body>
+    <!-- Header START -->
+    <header class="header-sticky header-absolute">
+      <!-- Logo Nav START -->
+      <nav class="navbar navbar-expand-xl">
+        <div class="container">
+          <!-- Logo START -->
+          <a class="navbar-brand me-0" href="index.html">
+            <img
+              class="light-mode-item navbar-brand-item"
+              src="/assets/images/logo.png"
+              alt="logo"
+            />
+            <img
+              class="dark-mode-item navbar-brand-item"
+              src="/assets/images/logo.png"
+              alt="logo"
+            />
+          </a>
+          <!-- Logo END -->
+
+          <!-- Main navbar START -->
+          <div class="navbar-collapse collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll dropdown-hover mx-auto">
+              <!-- Nav item -->
+              <li class="nav-item">
+                <a class="nav-link" href="index.html#services">Services</a>
+              </li>
+              <!-- Nav item -->
+              <li class="nav-item">
+                <a class="nav-link" href="index.html#team">Team</a>
+              </li>
+              <!-- Nav item -->
+              <li class="nav-item">
+                <a class="nav-link" href="contact-v1.html">Contact us</a>
+              </li>
+              <!-- Nav item -->
+              <li class="nav-item">
+                <a class="nav-link" href="contact-v2.html">Careers</a>
+              </li>
+            </ul>
+          </div>
+          <!-- Main navbar END -->
+
+          <!-- Buttons -->
+          <ul class="nav align-items-center dropdown-hover ms-sm-2">
+            <!-- Responsive navbar toggler -->
+            <li class="nav-item">
+              <button
+                class="navbar-toggler ms-sm-3 p-2"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarCollapse"
+                aria-controls="navbarCollapse"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <span class="navbar-toggler-animation">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </span>
+              </button>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <!-- Logo Nav END -->
+    </header>
+    <!-- Header END -->
+
+    <!-- **************** MAIN CONTENT START **************** -->
+    <main>
+      <!-- =======================
+Main hero START -->
+      <section class="pt-xl-8">
+        <div class="container">
+          <div class="row g-4 g-xxl-5">
+            <div class="col-xl-9 mx-auto">
+              <!-- Image -->
+              <img
+                src="assets/images/bg/02.jpg"
+                class="rounded"
+                alt="contact-bg"
+              />
+
+              <!-- Contact form START -->
+              <div class="row mt-n5 mt-sm-n7 mt-md-n8">
+                <div class="col-11 col-lg-9 mx-auto">
+                  <div class="card shadow p-4 p-sm-5 p-md-6">
+                    <!-- Card header -->
+                    <div class="card-header border-bottom px-0 pt-0 pb-5">
+                      <!-- Breadcrumb -->
+                      <nav class="mb-3" aria-label="breadcrumb">
+                        <ol class="breadcrumb breadcrumb-dots pt-0">
+                          <li class="breadcrumb-item">
+                            <a href="index.html">Home</a>
+                          </li>
+                          <li
+                            class="breadcrumb-item active"
+                            aria-current="page"
+                          >
+                            Contact us
+                          </li>
+                        </ol>
+                      </nav>
+                      <!-- Title -->
+                      <h1 class="mb-3 h3">
+                        Let’s Make Something
+                        <span class="text-primary">Awesome </span> Together
+                      </h1>
+                      <p class="mb-0">
+                        You can reach us anytime via
+                        <a href="#">qaas.work@gmail.com</a>
+                      </p>
+                    </div>
+
+                    <!-- Card body & form -->
+                    <form
+                      class="card-body px-0 pb-0 pt-5 needs-validation"
+                      action="https://formspree.io/f/xdkedkag"
+                      method="POST"
+                    >
+                      <!-- Name -->
+                      <div class="input-floating-label form-floating mb-4">
+                        <input
+                          type="text"
+                          class="form-control bg-transparent"
+                          name="name"
+                          id="floatingName"
+                          placeholder="Password"
+                          required
+                        />
+                        <label for="floatingName">Your name</label>
+                      </div>
+                      <!-- Email -->
+                      <div class="input-floating-label form-floating mb-4">
+                        <input
+                          type="email"
+                          class="form-control bg-transparent"
+                          name="email"
+                          id="floatingInput"
+                          placeholder="name@example.com"
+                          required
+                        />
+                        <label for="floatingInput">Email address</label>
+                      </div>
+                      <!-- What format of Employment is Needed? -->
+                      <div class="input-floating-label form-floating mb-4">
+                        <select
+                          name="floatingFormat"
+                          class="form-control bg-transparent"
+                          id="floatingFormat"
+                          required
+                        >
+                          <option value="#" disabled>
+                            What format of Employment is Needed?
+                          </option>
+                          <option value="Contract">Contract</option>
+                          <option value="Full-Time">Full-Time</option>
+                          <option value="Part-Time">Part-Time</option>
+                        </select>
+                      </div>
+                      <!-- Experience Level -->
+                      <div class="input-floating-label form-floating mb-4">
+                        <select
+                          name="floatingEXpLevel"
+                          class="form-control bg-transparent"
+                          id="floatingEXpLevel"
+                          required
+                        >
+                          <option value="#" disabled>
+                            Employee Range Needed
+                          </option>
+                          <option value="Entry Level">Entry Level</option>
+                          <option value="Intermediate">Intermediate</option>
+                          <option value="Mid Level">Mid Level</option>
+                          <option value="Senior Level">
+                            Senior | Executive Level
+                          </option>
+                        </select>
+                      </div>
+                      <!-- Budget -->
+                      <div class="input-floating-label form-floating mb-4">
+                        <input
+                          type="number"
+                          class="form-control bg-transparent"
+                          name="amount"
+                          id="floatingBudget"
+                          placeholder="Enter Amount"
+                          required
+                        />
+                        <label for="floatingBudget"
+                          >Budget Range (in USD )</label
+                        >
+                      </div>
+                      <!-- Deadline -->
+                      <div class="input-floating-label form-floating mb-4">
+                        <input
+                          type="number"
+                          class="form-control bg-transparent"
+                          name="deadline"
+                          id="floatingDeadline"
+                          placeholder="Enter Requirement"
+                          required
+                        />
+                        <label for="floatingDeadline"
+                          >How quickly you need the resource (in days)
+                        </label>
+                      </div>
+                      <!-- Message -->
+                      <div class="input-floating-label form-floating mb-4">
+                        <textarea
+                          class="form-control bg-transparent"
+                          name="additionalComment"
+                          placeholder="Leave a comment here"
+                          id="floatingTextarea2"
+                          style="height: 100px"
+                          required
+                        ></textarea>
+                        <label for="floatingTextarea2"
+                          >Additional Comment</label
+                        >
+                      </div>
+                      <!-- Button -->
+                      <button class="btn btn-lg btn-primary mb-0">
+                        Send a message
+                      </button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <!-- Contact form END -->
+            </div>
+          </div>
+          <!-- Row END -->
+        </div>
+      </section>
+      <!-- =======================
+Main hero END -->
+    </main>
+    <!-- **************** MAIN CONTENT END **************** -->
+
+    <!-- Back to top -->
+    <div class="back-top"></div>
+
+    <!-- Bootstrap JS -->
+    <script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Theme Functions -->
+    <script src="assets/js/functions.js"></script>
+  </body>
+</html>
