@@ -36,7 +36,7 @@ while i < 6:
     continue
   print(i) # Note that number 3 is missing in the result
 
-print("x"*60)
+print("x"*30)
 
 # The else Statement
 # With the else statement we can run a block of code once when the condition no longer is true:

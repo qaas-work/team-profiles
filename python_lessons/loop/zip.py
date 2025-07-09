@@ -4,7 +4,7 @@
 # If the passed iterables have different lengths, the iterable with the least items decides the length of the new iterator.
 
 
-a = ("Junaid", "khubaib", "Khadija")
+a = ("Juned", "khubaib", "Khadija")
 b = ("khan", "Ahmed", "Khan")
 
 x = zip(a, b) #if we print x directly it will give location of zip object like this <zip object at 0x14a911dc1680>

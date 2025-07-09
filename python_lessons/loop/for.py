@@ -4,7 +4,7 @@
 # other object-orientated programming languages.
 # With the for loop we can execute a set of statements, once for each item in a list, tuple, set etc 
 
-Names = ["Javed","Junaid","Zahid","Ahmed"]
+Names = ["Javed","Juned","Zahid","Ahmed"]
 for x in Names:
     print(x)
 
