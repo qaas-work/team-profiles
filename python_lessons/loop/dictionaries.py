@@ -5,7 +5,7 @@
 
 info = {
   "Name": "Junaid",
-  "age": 36,
+  "Age": 36,
   "Gender": "Male"
 }
 print(info)

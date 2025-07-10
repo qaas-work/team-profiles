@@ -4,7 +4,7 @@
 # Print each adjective for every fruit:
 
 adj = ["red", "big", "tasty"]
-fruits = ["apples", "banana", "cherry"]
+fruits = ["apple", "banana", "cherry"]
 
 for x in adj:
    for y in fruits:
